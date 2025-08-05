@@ -5,9 +5,12 @@ import signal
 import json
 import platform
 import os
+import sys
 import time
 import traceback
 import uuid
+import asyncio
+import psutil
 from pathlib import Path
 import numpy as np
 from tqdm import tqdm
@@ -29,10 +32,9 @@ from exo.inference.inference_engine import get_inference_engine
 from exo.inference.tokenizers import resolve_tokenizer
 from exo.models import build_base_shard, get_repo, load_additional_models
 from exo.viz.topology_viz import TopologyViz
-import uvloop
 import concurrent.futures
-import resource
-import psutil
+if not psutil.WINDOWS:
+  import resource
 
 # TODO: figure out why this is happening
 os.environ["GRPC_VERBOSITY"] = "error"
@@ -40,8 +42,13 @@ os.environ["TRANSFORMERS_VERBOSITY"] = "error"
 os.environ["TOKENIZERS_PARALLELISM"] = "true"
 
 # Configure uvloop for maximum performance
-def configure_uvloop():
-    uvloop.install()
+def configure_event_loop():
+    # Windows-specific optimizations
+    if psutil.WINDOWS:
+        asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
+    else:
+        import uvloop
+        asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
 
@@ -401,7 +408,7 @@ async def main():
 def run():
     loop = None
     try:
-        loop = configure_uvloop()
+        loop = configure_event_loop()
         loop.run_until_complete(main())
     except KeyboardInterrupt:
         print("\nShutdown requested... exiting")

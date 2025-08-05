@@ -1,5 +1,5 @@
 version = 1
-revision = 3
+revision = 2
 requires-python = ">=3.12"
 resolution-markers = [
     "python_full_version >= '3.13' and sys_platform == 'darwin'",
@@ -236,7 +236,7 @@ dependencies = [
     { name = "tqdm" },
     { name = "transformers" },
     { name = "uuid" },
-    { name = "uvloop" },
+    { name = "uvloop", marker = "sys_platform != 'win32'" },
 ]
 
 [package.optional-dependencies]
@@ -306,7 +306,7 @@ requires-dist = [
     { name = "tqdm", specifier = "==4.66.4" },
     { name = "transformers", specifier = "==4.46.3" },
     { name = "uuid", specifier = "==1.30" },
-    { name = "uvloop", specifier = "==0.21.0" },
+    { name = "uvloop", marker = "sys_platform != 'win32'", specifier = "==0.21.0" },
     { name = "yapf", marker = "extra == 'dev'", specifier = "==0.40.2" },
     { name = "yapf", marker = "extra == 'formatting'", specifier = "==0.40.2" },
 ]
