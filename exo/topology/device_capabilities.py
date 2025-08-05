@@ -223,7 +223,7 @@ async def linux_device_capabilities() -> DeviceCapabilities:
     )
 
 
-def windows_device_capabilities() -> DeviceCapabilities:
+async def windows_device_capabilities() -> DeviceCapabilities:
   import psutil
 
   def get_gpu_info():
@@ -281,7 +281,7 @@ def windows_device_capabilities() -> DeviceCapabilities:
 
     return DeviceCapabilities(
       model="Windows Box ({gpu_name})",
-      chip={gpu_name},
+      chip=gpu_name,
       memory=gpu_memory_info.total // 2**20,
       flops=DeviceFlops(fp32=0, fp16=0, int8=0),
     )
