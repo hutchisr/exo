@@ -214,6 +214,7 @@ dependencies = [
     { name = "grpcio" },
     { name = "grpcio-tools" },
     { name = "jinja2" },
+    { name = "llguidance" },
     { name = "mlx", marker = "platform_machine == 'arm64' and sys_platform == 'darwin'" },
     { name = "mlx-lm", marker = "platform_machine == 'arm64' and sys_platform == 'darwin'" },
     { name = "nuitka" },
@@ -276,6 +277,7 @@ requires-dist = [
     { name = "grpcio", specifier = "==1.70.0" },
     { name = "grpcio-tools", specifier = "==1.70.0" },
     { name = "jinja2", specifier = "==3.1.4" },
+    { name = "llguidance", specifier = ">=1.1.1" },
     { name = "mlx", marker = "platform_machine == 'arm64' and sys_platform == 'darwin'", specifier = "==0.27.1" },
     { name = "mlx", marker = "extra == 'apple-silicon'", specifier = "==0.27.1" },
     { name = "mlx-lm", marker = "platform_machine == 'arm64' and sys_platform == 'darwin'", specifier = "==0.26.2" },
@@ -513,6 +515,21 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/ed/55/39036716d19cab0747a5020fc7e907f362fbf48c984b14e62127f7e68e5d/jinja2-3.1.4.tar.gz", hash = "sha256:4a3aee7acbbe7303aede8e9648d13b8bf88a429282aa6122a993f0ac800cb369", size = 240245, upload-time = "2024-05-05T23:42:02.455Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/31/80/3a54838c3fb461f6fec263ebf3a3a41771bd05190238de3486aae8540c36/jinja2-3.1.4-py3-none-any.whl", hash = "sha256:bc5dd2abb727a5319567b7a813e6a2e7318c39f4f487cfe6c89c6f9c7d25197d", size = 133271, upload-time = "2024-05-05T23:41:59.928Z" },
+]
+
+[[package]]
+name = "llguidance"
+version = "1.1.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/30/e3/473e15d1312cbaca36a02c446ee19a4dc957979621151e12e29acb426a16/llguidance-1.1.1.tar.gz", hash = "sha256:c65f9242acb7c989262bfb13d4f0f5d42b53c3a4b8a6f6e480a849bee8a98537", size = 1061524, upload-time = "2025-07-23T21:00:57.377Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/7a/a3/4ef8485ef27203e907a3c299dd56c570a03ce1dc97a2b861686b753bd1be/llguidance-1.1.1-cp39-abi3-macosx_10_12_x86_64.whl", hash = "sha256:b9b0c837a1ec570909bca6ff1a9e7c119898d4bfb119b73114a3887a76e670a6", size = 3219680, upload-time = "2025-07-23T21:00:56.163Z" },
+    { url = "https://files.pythonhosted.org/packages/0e/da/18cb38740f4e55fbfb9a9a43bffe352c3ce826c7d49ed7e3436ed54bb90c/llguidance-1.1.1-cp39-abi3-macosx_11_0_arm64.whl", hash = "sha256:86723ab44b47a00a748a5af8b0fa92aba6134fd1b34a7160b4c244c11c974379", size = 3083750, upload-time = "2025-07-23T21:00:54.717Z" },
+    { url = "https://files.pythonhosted.org/packages/95/5a/c21d09f871b618d8c0753314e999792e80227955e1d126725b45b489a96a/llguidance-1.1.1-cp39-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:4c7c32198319ead7047bfb4ae7f588a2a60d5f2942652786f8ab86707c125ccd", size = 2805185, upload-time = "2025-07-23T21:00:50.347Z" },
+    { url = "https://files.pythonhosted.org/packages/3c/56/656dc79b042978f42940345a7b6d80107b4bdaa4bfb28afc681fca6314f9/llguidance-1.1.1-cp39-abi3-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:a905bd9ff6c68bc5e90df1ff4921830900b7f6bb3f58221fe4e25cbf4ad7f0aa", size = 3294855, upload-time = "2025-07-23T21:00:51.857Z" },
+    { url = "https://files.pythonhosted.org/packages/c0/1d/a72385cbeafd0989c4374839633750a6e30b1dd435bc7f59e2175ab99b3a/llguidance-1.1.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:baac911e33a3ac880c3956dcc0048f8e162469ec9365308d73c8a86f5795aa60", size = 3037034, upload-time = "2025-07-23T21:00:53.301Z" },
+    { url = "https://files.pythonhosted.org/packages/56/d6/e2f370cfd52393df3ff5546010176e9ae2846fdac0983e0734b1667aa8c6/llguidance-1.1.1-cp39-abi3-win32.whl", hash = "sha256:f8aef02ade9d648f54b2fbc07f4ec17e35dfbdfc08c300d356942709ac5dd23e", size = 2596287, upload-time = "2025-07-23T21:01:00.198Z" },
+    { url = "https://files.pythonhosted.org/packages/39/c5/801d6315b5e012c61dc8a14504e673ba082349e44672d75a1f94388614d9/llguidance-1.1.1-cp39-abi3-win_amd64.whl", hash = "sha256:e72c7703271a9a0c2e6b77d88939d760cb256d0778dac98326fc24a113de11af", size = 2791392, upload-time = "2025-07-23T21:00:58.512Z" },
 ]
 
 [[package]]
